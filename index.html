@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audentes — TEKNOFEST 2026 Sağlıkta Yapay Zeka</title>
+  <meta name="description"
+    content="Bursa Teknik Üniversitesi Audentes Takımı — TEKNOFEST 2026 Sağlıkta Yapay Zeka yarışmasında genomik varyantları yapay zeka ile sınıflandırıyoruz." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'navy': { 900: '#0a0e1a', 800: '#0f172a', 700: '#1e293b' },
+            'neon-cyan': '#00e5ff',
+            'neon-purple': '#b388ff',
+            'accent-green': '#00e676',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-navy-900 text-slate-200 font-sans antialiased">
+
+  <!-- Background Grid -->
+  <div class="bg-grid"></div>
+
+  <!-- ─── NAVBAR ─────────────────────────────────────────────────────────── -->
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2 z-50">
+        <span class="font-bold text-lg tracking-tight">Audentes</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav-links-desktop hidden md:flex items-center gap-8">
+        <a href="#mission" class="nav-link">Misyon</a>
+        <a href="#project" class="nav-link">Proje</a>
+        <a href="#team" class="nav-link">Takım</a>
+        <a href="#timeline" class="nav-link">Yol Haritası</a>
+      </div>
+
+      <!-- Hamburger -->
+      <div class="hamburger md:hidden" aria-label="Menü">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="#mission" class="nav-link">Misyon</a>
+    <a href="#project" class="nav-link">Proje</a>
+    <a href="#team" class="nav-link">Takım</a>
+    <a href="#timeline" class="nav-link">Yol Haritası</a>
+  </div>
+
+  <!-- ─── HERO ───────────────────────────────────────────────────────────── -->
+  <section id="hero" class="hero">
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+
+    <!-- DNA Helix Canvas -->
+    <canvas id="dna-canvas"></canvas>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="inline-block w-2 h-2 rounded-full bg-neon-cyan animate-pulse"></span>
+        TEKNOFEST 2026 — Sağlıkta Yapay Zeka
+      </div>
+
+      <h1 class="hero-title">AUDENTES</h1>
+      <p class="hero-motto">"Audentes fortuna iuvat"</p>
+      <p class="hero-description">
+        Kader cesurlardan yanadır. Genomik varyantları sınıflandıran,
+        sağlıkta erken tanıyı mümkün kılan yeni nesil yapay zeka modelleri geliştiriyoruz.
+      </p>
+
+      <a href="#project" class="hero-cta">
+        Projemizi İncele
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="M12 5v14" />
+        <path d="m19 12-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ─── MISSION ────────────────────────────────────────────────────────── -->
+  <section id="mission" class="relative py-24 md:py-32 overflow-hidden">
+    <div class="gradient-orb orb-3"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- Left: Text -->
+        <div class="animate-on-scroll">
+          <div class="section-label"><span class="dot"></span> Misyonumuz</div>
+          <h2 class="section-title">
+            Yapay Zeka ile <br />
+            <span class="text-neon-cyan">Sağlığın Geleceğini Şekillendiriyoruz</span>
+          </h2>
+          <p class="section-subtitle mb-8">
+            Hastalığı tedavi etmeden önce öngörmek mümkün. Audentes olarak,
+            genomik verileri yapay zeka ile analiz ederek hastalık risklerini
+            henüz ortaya çıkmadan tespit eden çözümler üretiyoruz.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span
+              class="px-4 py-2 rounded-full border border-neon-cyan/20 bg-neon-cyan/5 text-neon-cyan text-sm font-medium">Derin
+              Öğrenme</span>
+            <span
+              class="px-4 py-2 rounded-full border border-neon-purple/20 bg-neon-purple/5 text-neon-purple text-sm font-medium">Genomik</span>
+            <span
+              class="px-4 py-2 rounded-full border border-accent-green/20 bg-accent-green/5 text-accent-green text-sm font-medium">Varyant
+              Sınıflandırma</span>
+          </div>
+        </div>
+
+        <!-- Right: Stats Grid -->
+        <div class="grid grid-cols-2 gap-4 animate-on-scroll delay-2">
+          <div class="glass-card mission-stat">
+            <div class="mission-stat-value">5</div>
+            <div class="mission-stat-label">Üye</div>
+          </div>
+          <div class="glass-card mission-stat">
+            <div class="mission-stat-value">4</div>
+            <div class="mission-stat-label">Veri Seti</div>
+          </div>
+          <div class="glass-card mission-stat">
+            <div class="mission-stat-value">2</div>
+            <div class="mission-stat-label">Sınıflandırma</div>
+          </div>
+          <div class="glass-card mission-stat">
+            <div class="mission-stat-value">1</div>
+            <div class="mission-stat-label">Hedef: Birincilik</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECT FOCUS ──────────────────────────────────────────────────── -->
+  <section id="project" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Header -->
+      <div class="text-center mb-16 animate-on-scroll">
+        <div class="section-label justify-center"><span class="dot"></span> Proje Odağı</div>
+        <h2 class="section-title">Genomik Varyant<br /><span class="text-neon-purple">Sınıflandırma</span></h2>
+        <p class="section-subtitle mx-auto">
+          Genetik varyasyonların hastalık yapıcı mı yoksa zararsız mı olduğunu
+          derin öğrenme modelleriyle tahmin ediyoruz.
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <!-- Card 1 -->
+        <div class="glass-card focus-card p-6 animate-on-scroll delay-1">
+          <div class="focus-card-icon bg-neon-cyan/10 text-neon-cyan">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <path d="M12 17h.01" />
+            </svg>
+          </div>
+          <h3>Problem</h3>
+          <p>
+            Genetik varyantları çok boyutlu biyolojik verilerle analiz ederek
+            <strong class="text-accent-green">Patojenik</strong> (hastalık yapıcı)
+            veya <strong class="text-neon-cyan">Benign</strong> (zararsız) olarak doğru şekilde sınıflandırmak.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card focus-card p-6 animate-on-scroll delay-2">
+          <div class="focus-card-icon bg-neon-purple/10 text-neon-purple">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+          </div>
+          <h3>Kapsam & Analiz</h3>
+          <p>
+            DNA dizi bilgisi, biyokimyasal etki, protein fonksiyonu ve evrimsel
+            korunma skorları gibi çok katmanlı özelliklerin binlerce genomik
+            pozisyonda birlikte değerlendirilmesi.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card focus-card p-6 animate-on-scroll delay-3">
+          <div class="focus-card-icon bg-accent-green/10 text-accent-green">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+          </div>
+          <h3>Yöntem</h3>
+          <p>
+            Transformer, gradient boosting ve derin sinir ağı mimarilerini bir arada
+            kullanan topluluk (ensemble) öğrenme yaklaşımıyla klinik veri setleri
+            üzerinde yüksek doğrulukta tahmin modelleri eğitiyoruz.
+          </p>
+        </div>
+      </div>
+
+      <!-- Dataset Tags -->
+      <div class="text-center animate-on-scroll delay-4">
+        <p class="text-sm text-slate-400 mb-4 font-medium uppercase tracking-wider">Veri Setleri</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <span class="dataset-tag border-neon-cyan/30 text-neon-cyan bg-neon-cyan/5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            Genel Varyant Setleri
+          </span>
+          <span class="dataset-tag border-neon-purple/30 text-neon-purple bg-neon-purple/5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            Kalıtsal Kanser Panelleri
+          </span>
+          <span class="dataset-tag border-accent-green/30 text-accent-green bg-accent-green/5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            PKU (PAH) Gen Panelleri
+          </span>
+          <span class="dataset-tag border-amber-400/30 text-amber-400 bg-amber-400/5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            Kistik Fibrozis (CFTR)
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TEAM ───────────────────────────────────────────────────────────── -->
+  <section id="team" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Header -->
+      <div class="text-center mb-16 animate-on-scroll">
+        <div class="section-label justify-center"><span class="dot"></span> Takım</div>
+        <h2 class="section-title">Ekibimiz: <span class="text-neon-cyan">Audentes</span></h2>
+        <p class="section-subtitle mx-auto">
+          Bursa Teknik Üniversitesi'nden beş mühendislik öğrencisi;
+          sağlıkta yapay zekanın sınırlarını zorlamak için bir arada.
+        </p>
+      </div>
+
+      <!-- ▲ "^" Düzeni — 5 kart tek sırada, kademeli yükseklik -->
+      <div class="flex justify-center items-start gap-5 flex-wrap lg:flex-nowrap animate-on-scroll delay-1"
+        style="padding-bottom: 100px;">
+
+        <!-- Sol dış — Songül (en alçak) -->
+        <div class="glass-card team-card w-full max-w-[220px]" style="transform: translateY(100px);">
+
+          <h3>Songül Sevinti</h3>
+          <span class="team-role">Geliştirici</span>
+          <p class="team-dept">Elektrik-Elektronik Müh. — 1. Sınıf</p>
+          <p class="team-desc">
+            Teknolojiye meraklı, proje geliştirme ve ekip çalışmasında aktif.
+          </p>
+        </div>
+
+        <!-- Sol iç — Ali (orta yükseklik) -->
+        <div class="glass-card team-card w-full max-w-[220px]" style="transform: translateY(50px);">
+
+          <h3>Ali Andaç Erdaş</h3>
+          <span class="team-role">Geliştirici</span>
+          <p class="team-dept">Yapay Zeka ve Makine Öğr. — 1. Sınıf</p>
+          <p class="team-desc">
+            Yapay zeka uygulamaları geliştirme ve problem çözme odaklı çalışıyor.
+          </p>
+        </div>
+
+        <!-- Orta — Kaptan (en yüksek, tepe) -->
+        <div class="glass-card team-card team-card-captain w-full max-w-[220px]">
+
+          <h3>Ahmet Taha Çelik</h3>
+          <span class="team-role">🎖️ Kaptan</span>
+          <p class="team-dept">Mekatronik Mühendisliği — 4. Sınıf</p>
+          <p class="team-desc">
+            BTÜ Yapay Zeka Topluluğu Başkanı. Derin öğrenme model eğitimi konusunda deneyimli.
+          </p>
+        </div>
+
+        <!-- Sağ iç — Gizem (orta yükseklik) -->
+        <div class="glass-card team-card w-full max-w-[220px]" style="transform: translateY(50px);">
+
+          <h3>Gizem Öksüz</h3>
+          <span class="team-role">Geliştirici</span>
+          <p class="team-dept">Yapay Zeka ve Makine Öğr. — 1. Sınıf</p>
+          <p class="team-desc">
+            Python ve C alanında yetkin; yapay zeka ile gerçek sorunlara çözüm üretmeyi seviyor.
+          </p>
+        </div>
+
+        <!-- Sağ dış — Ebrar (en alçak) -->
+        <div class="glass-card team-card w-full max-w-[220px]" style="transform: translateY(100px);">
+
+          <h3>Ebrar Yılmaz</h3>
+          <span class="team-role">Geliştirici</span>
+          <p class="team-dept">Yapay Zeka ve Makine Öğrenmesi</p>
+          <p class="team-desc">
+            Makine öğrenmesi, bilgisayarlı görü ve model mimarisi optimizasyonu konularında uzman.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ─── TIMELINE (YOL HARİTASI) ────────────────────────────────────────── -->
+  <section id="timeline" class="relative py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <!-- Header -->
+      <div class="text-center mb-16 animate-on-scroll">
+        <div class="section-label justify-center"><span class="dot"></span> Yol Haritası</div>
+        <h2 class="section-title">Proje<br /><span class="text-accent-green">Yol Haritası</span></h2>
+        <p class="section-subtitle mx-auto">
+          Başvurudan finale kadar olan sürecimizi adım adım takip edin.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="timeline-line-progress" style="height: 0;"></div>
+
+        <!-- Task 1 -->
+        <div class="timeline-item animate-on-scroll" data-task="1">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="task-number text-accent-green">Görev 01</div>
+            <h3>Proje Kaydı & Ön Araştırma</h3>
+            <p>KYS üzerinden takım kaydı yapıldı; genomik varyant sınıflandırma yöntemleri üzerine literatür taramasına
+              başlandı.</p>
+            <span class="timeline-deadline deadline-completed">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+              20 Şubat 2026
+            </span>
+          </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="timeline-item animate-on-scroll delay-1" data-task="2">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="task-number text-neon-cyan">Görev 02</div>
+            <h3>Proje Sunum Raporu (PSR)</h3>
+            <p>Problem tanımı, kapsamlı literatür araştırması, çözüm yaklaşımı ve model mimarisinin belirlenmesi.</p>
+            <span class="timeline-deadline deadline-active">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              25 Mart 2026
+            </span>
+          </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="timeline-item animate-on-scroll delay-2" data-task="3">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="task-number text-slate-400">Görev 03</div>
+            <h3>Veri Analizi & Model Geliştirme</h3>
+            <p>Eğitim verilerinin ön işlenmesi, özellik çıkarımı ve farklı model mimarileriyle deneysel çalışmaların
+              başlatılması.</p>
+            <span class="timeline-deadline deadline-upcoming">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              5 Mayıs 2026'da Başlıyor
+            </span>
+          </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="timeline-item animate-on-scroll delay-3" data-task="4">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="task-number text-slate-400">Görev 04</div>
+            <h3>Proje Detay Raporu (PDR)</h3>
+            <p>Model mimarisi, eğitim süreci, hiperparametre optimizasyonu ve iç doğrulama sonuçlarının raporlanması.
+            </p>
+            <span class="timeline-deadline deadline-upcoming">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              29 Haziran 2026
+            </span>
+          </div>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="timeline-item animate-on-scroll delay-4" data-task="5">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card">
+            <div class="task-number text-slate-400">Görev 05</div>
+            <h3>Final Yarışması & Dış Doğrulama</h3>
+            <p>Gizli test verileri üzerinde model performansının değerlendirilmesi ve TEKNOFEST Şanlıurfa finaline
+              katılım.</p>
+            <span class="timeline-deadline deadline-upcoming">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Ağustos – Eylül 2026
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="glass-card chain-stats animate-on-scroll delay-5">
+        <div class="chain-stat-item">
+          <div class="chain-stat-dot bg-accent-green" style="box-shadow: 0 0 6px rgba(0,230,118,0.5)"></div>
+          <span class="chain-stat-text"><span id="chain-completed">0</span> Tamamlandı</span>
+        </div>
+        <div class="w-px h-4 bg-slate-700"></div>
+        <div class="chain-stat-item">
+          <div class="chain-stat-dot bg-neon-cyan" style="box-shadow: 0 0 6px rgba(0,229,255,0.5)"></div>
+          <span class="chain-stat-text"><span id="chain-active">0</span> Devam Ediyor</span>
+        </div>
+        <div class="w-px h-4 bg-slate-700"></div>
+        <div class="chain-stat-item">
+          <div class="chain-stat-dot bg-slate-600"></div>
+          <span class="chain-stat-text"><span id="chain-upcoming">0</span> Yaklaşan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
+  <footer class="footer py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+        <!-- Left -->
+        <div class="flex-1 text-center md:text-left">
+          <p class="font-bold text-sm">Takım Audentes</p>
+          <p class="text-xs text-slate-500">Bursa Teknik Üniversitesi</p>
+        </div>
+
+        <!-- Center -->
+        <div class="flex-1 text-center">
+          <p class="text-xs text-slate-500">
+            TEKNOFEST 2026 — Sağlıkta Yapay Zeka Yarışması<br />
+            Üniversite ve Üstü Kategorisi
+          </p>
+        </div>
+
+        <!-- Right -->
+        <div class="flex-1 text-center md:text-right">
+          <p class="text-xs text-slate-500 font-mono">
+            &copy; 2026 Audentes
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-white/5 text-center w-full">
+        <p class="text-xs text-slate-600 font-mono italic">
+          "Audentes fortuna iuvat" — Talih cesurlardan yanadır
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+
+</html>
