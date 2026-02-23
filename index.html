@@ -370,91 +370,183 @@
         <div class="timeline-line"></div>
         <div class="timeline-line-progress" style="height: 0;"></div>
 
-        <!-- Task 1 -->
+        <!-- Phase 1: Preparation & Strategy — COMPLETED -->
         <div class="timeline-item animate-on-scroll" data-task="1">
           <div class="timeline-node"></div>
-          <div class="glass-card timeline-card">
-            <div class="task-number text-accent-green">Görev 01</div>
-            <h3>Proje Kaydı & Ön Araştırma</h3>
-            <p>KYS üzerinden takım kaydı yapıldı; genomik varyant sınıflandırma yöntemleri üzerine literatür taramasına
-              başlandı.</p>
+          <div class="glass-card timeline-card phase-card">
+            <div class="phase-header">
+              <div class="task-number text-accent-green">Faz 01</div>
+              <span class="phase-status-badge phase-badge-completed">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Tamamlandı
+              </span>
+            </div>
+            <h3>Hazırlık &amp; Strateji</h3>
             <span class="timeline-deadline deadline-completed">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M20 6 9 17l-5-5" />
               </svg>
               20 Şubat 2026
             </span>
+            <ul class="subtask-list">
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Takım kurulumu</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Şartname analizi</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Resmi KYS kaydı</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Gizlilik NDA imzalandı</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Task 2 -->
+        <!-- Phase 2: PSR — IN PROGRESS -->
         <div class="timeline-item animate-on-scroll delay-1" data-task="2">
           <div class="timeline-node"></div>
-          <div class="glass-card timeline-card">
-            <div class="task-number text-neon-cyan">Görev 02</div>
+          <div class="glass-card timeline-card phase-card">
+            <div class="phase-header">
+              <div class="task-number text-neon-cyan">Faz 02</div>
+              <span class="phase-status-badge phase-badge-active">
+                <span class="phase-badge-pulse"></span>
+                Devam Ediyor
+              </span>
+            </div>
             <h3>Proje Sunum Raporu (PSR)</h3>
-            <p>Problem tanımı, kapsamlı literatür araştırması, çözüm yaklaşımı ve model mimarisinin belirlenmesi.</p>
             <span class="timeline-deadline deadline-active">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              25 Mart 2026
+              Son Tarih: 25 Mart 2026
             </span>
+            <ul class="subtask-list">
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Varyant patojenisite problem tanımı</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Model mimarisi seçimi (Transformer/Ensemble)</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Ön veri kazıma (ClinVar/gnomAD)</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">PSR raporunun yazımı</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Task 3 -->
+        <!-- Phase 3: Data Engineering & Model Training — UPCOMING -->
         <div class="timeline-item animate-on-scroll delay-2" data-task="3">
           <div class="timeline-node"></div>
-          <div class="glass-card timeline-card">
-            <div class="task-number text-slate-400">Görev 03</div>
-            <h3>Veri Analizi & Model Geliştirme</h3>
-            <p>Eğitim verilerinin ön işlenmesi, özellik çıkarımı ve farklı model mimarileriyle deneysel çalışmaların
-              başlatılması.</p>
+          <div class="glass-card timeline-card phase-card">
+            <div class="phase-header">
+              <div class="task-number text-slate-400">Faz 03</div>
+              <span class="phase-status-badge phase-badge-upcoming">Yaklaşan</span>
+            </div>
+            <h3>Veri Mühendisliği &amp; Model Eğitimi</h3>
             <span class="timeline-deadline deadline-upcoming">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              5 Mayıs 2026'da Başlıyor
+              Başlangıç: 5 Mayıs 2026
             </span>
+            <ul class="subtask-list">
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Feature Engineering (Biyokimyasal &amp; Evrimsel skorlar)</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">TÜSEB eğitim setlerinin ön işlenmesi</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Cross-validation pipeline kurulumu</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Task 4 -->
+        <!-- Phase 4: PDR & Validation — UPCOMING -->
         <div class="timeline-item animate-on-scroll delay-3" data-task="4">
           <div class="timeline-node"></div>
-          <div class="glass-card timeline-card">
-            <div class="task-number text-slate-400">Görev 04</div>
-            <h3>Proje Detay Raporu (PDR)</h3>
-            <p>Model mimarisi, eğitim süreci, hiperparametre optimizasyonu ve iç doğrulama sonuçlarının raporlanması.
-            </p>
+          <div class="glass-card timeline-card phase-card">
+            <div class="phase-header">
+              <div class="task-number text-slate-400">Faz 04</div>
+              <span class="phase-status-badge phase-badge-upcoming">Yaklaşan</span>
+            </div>
+            <h3>PDR &amp; Doğrulama</h3>
             <span class="timeline-deadline deadline-upcoming">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              29 Haziran 2026
+              Son Tarih: 29 Haziran 2026
             </span>
+            <ul class="subtask-list">
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">İç doğrulama (Confusion Matrix/F1 skorları)</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">XAI (Model Yorumlanabilirliği) analizi</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Proje Detay Raporu'nun sonlandırılması</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Task 5 -->
+        <!-- Phase 5: Grand Final & Şanlıurfa — UPCOMING -->
         <div class="timeline-item animate-on-scroll delay-4" data-task="5">
           <div class="timeline-node"></div>
-          <div class="glass-card timeline-card">
-            <div class="task-number text-slate-400">Görev 05</div>
-            <h3>Final Yarışması & Dış Doğrulama</h3>
-            <p>Gizli test verileri üzerinde model performansının değerlendirilmesi ve TEKNOFEST Şanlıurfa finaline
-              katılım.</p>
+          <div class="glass-card timeline-card phase-card">
+            <div class="phase-header">
+              <div class="task-number text-slate-400">Faz 05</div>
+              <span class="phase-status-badge phase-badge-upcoming">Yaklaşan</span>
+            </div>
+            <h3>Büyük Final &amp; Şanlıurfa</h3>
             <span class="timeline-deadline deadline-upcoming">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10" />
                 <polyline points="12 6 12 12 16 14" />
               </svg>
-              Ağustos – Eylül 2026
+              Eylül – Ekim 2026
             </span>
+            <ul class="subtask-list">
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Dış doğrulama simülasyonu</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">Sunum &amp; Poster tasarımı</span>
+              </li>
+              <li class="subtask-item">
+                <span class="subtask-bullet"></span>
+                <span class="subtask-text">TEKNOFEST'te gizli test setleri üzerinde canlı çıkarım</span>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
