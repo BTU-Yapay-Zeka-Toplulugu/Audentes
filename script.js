@@ -195,17 +195,22 @@ function initTimelineProgress() {
   // Determine status of each milestone
   milestones.forEach((m, i) => {
     const node = document.querySelector(`[data-task="${m.id}"] .timeline-node`);
-    const card = document.querySelector(`[data-task="${m.id}"] .timeline-card`);
+    const card = document.querySelector(`[data-task="${m.id}"] .phase-card`);
 
     if (!node || !card) return;
 
     if (now > m.deadline) {
+      // Completed phase
       node.classList.add('completed');
       node.innerHTML = '✓';
+      card.classList.add('phase-completed');
     } else if (i === 0 || now > milestones[i - 1].deadline) {
+      // Active phase
       node.classList.add('active');
       node.innerHTML = m.id;
+      card.classList.add('phase-active-glow');
     } else {
+      // Upcoming phase
       node.classList.add('upcoming');
       node.innerHTML = m.id;
     }
@@ -254,4 +259,5 @@ function initTimelineProgress() {
   if (activeEl) activeEl.textContent = activeIndex >= 0 ? 1 : 0;
   if (upcomingEl)
     upcomingEl.textContent = milestones.length - completedCount - (activeIndex >= 0 ? 1 : 0);
+
 }
