@@ -514,7 +514,7 @@ body {
   }
 }
 
-/* ---------- Timeline (Don't Break the Chain) ---------- */
+/* ---------- Timeline (Phase-Based Task Chain) ---------- */
 .timeline-container {
   position: relative;
   padding: 2rem 0;
@@ -589,6 +589,19 @@ body {
     left: -25px;
     right: auto;
   }
+
+  .timeline-item:nth-child(odd) .subtask-list {
+    direction: rtl;
+  }
+
+  .timeline-item:nth-child(odd) .subtask-item {
+    direction: ltr;
+    justify-content: flex-end;
+  }
+
+  .timeline-item:nth-child(odd) .phase-header {
+    flex-direction: row-reverse;
+  }
 }
 
 .timeline-node {
@@ -629,34 +642,115 @@ body {
   color: var(--text-muted);
 }
 
-.timeline-card {
+/* Phase Card */
+.phase-card {
   flex: 1;
   padding: 1.5rem;
-  max-width: 480px;
+  max-width: 520px;
+  transition: all 0.4s ease;
 }
 
-.timeline-card .task-number {
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.phase-card .task-number {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
 }
 
-.timeline-card h3 {
+.phase-card h3 {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
-.timeline-card p {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
+/* Phase Status Badges */
+.phase-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  white-space: nowrap;
 }
 
+.phase-badge-completed {
+  background: rgba(0, 230, 118, 0.12);
+  color: var(--accent-green);
+  border: 1px solid rgba(0, 230, 118, 0.25);
+}
+
+.phase-badge-active {
+  background: rgba(0, 229, 255, 0.12);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  position: relative;
+}
+
+.phase-badge-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  animation: pulseNode 2s ease-in-out infinite;
+}
+
+.phase-badge-upcoming {
+  background: rgba(148, 163, 184, 0.08);
+  color: var(--text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* Phase Card — Completed (dimmed) */
+.phase-card.phase-completed {
+  opacity: 0.7;
+}
+
+.phase-card.phase-completed:hover {
+  opacity: 1;
+}
+
+/* Phase Card — Active (neon glow) */
+.phase-card.phase-active-glow {
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow:
+    0 0 20px rgba(0, 229, 255, 0.15),
+    0 0 60px rgba(0, 229, 255, 0.05),
+    inset 0 0 30px rgba(0, 229, 255, 0.03);
+  animation: glowBorder 3s ease-in-out infinite;
+}
+
+@keyframes glowBorder {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(0, 229, 255, 0.15),
+      0 0 60px rgba(0, 229, 255, 0.05),
+      inset 0 0 30px rgba(0, 229, 255, 0.03);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(0, 229, 255, 0.25),
+      0 0 80px rgba(0, 229, 255, 0.1),
+      inset 0 0 40px rgba(0, 229, 255, 0.05);
+  }
+}
+
+/* Deadline Tags */
 .timeline-deadline {
   display: inline-flex;
   align-items: center;
@@ -667,6 +761,7 @@ body {
   padding: 0.3rem 0.75rem;
   border-radius: 8px;
   letter-spacing: 0.02em;
+  margin-bottom: 1rem;
 }
 
 .deadline-completed {
@@ -685,6 +780,62 @@ body {
   background: rgba(148, 163, 184, 0.08);
   color: var(--text-muted);
   border: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+/* Sub-task List */
+.subtask-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subtask-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.subtask-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Bullet dot */
+.subtask-bullet {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.5;
+  transition: all 0.25s ease;
+}
+
+/* Completed phase bullets — green */
+.phase-completed .subtask-bullet {
+  background: var(--accent-green);
+  opacity: 0.7;
+}
+
+/* Active phase bullets — cyan glow */
+.phase-active-glow .subtask-bullet {
+  background: var(--neon-cyan);
+  opacity: 0.8;
+  box-shadow: 0 0 6px rgba(0, 229, 255, 0.3);
+}
+
+/* Sub-task text */
+.subtask-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
 }
 
 /* Chain Stats Bar */
